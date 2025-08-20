@@ -61,3 +61,24 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 4. Run with VART on the target (Zynq/Kria), expose an Ethernet API (/infer) for the drone/ground UI.
 
 5. Do softmax on host (DPU outputs logits/INT8 scores).
+
+
+## Real-time constraints & target metrics
+
+* **End-to-end latency (1×1024 window):** ≤10 ms (goal, DPU) / ≤20 ms (GPU mobile).
+
+* **Throughput:** ≥100 FPS per stream on embedded; scalable via batching on GPU.
+
+* **Power:** <6–8 W (DPU SoC node), 15–30 W (Jetson class).
+
+* **Robustness:** stable classification from −10 dB SNR upward with temporal smoothing.
+
+## Drone integration plan
+
+* **Form factors:** SDR + DPU SoC or SDR + Jetson on companion computer.
+
+* **Interfaces:** Ethernet to flight computer, optional MAVLink status, GNSS (NMEA) for geo-tagging.
+
+* **Operational modes:** fixed-channel monitoring, band scanning, triggered capture, geo-fence alerts.
+
+* **Data products:** time-stamped detections, confidence, SNR, (future) coarse bearings.
