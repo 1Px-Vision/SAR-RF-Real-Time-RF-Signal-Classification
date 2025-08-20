@@ -41,3 +41,23 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 * Dataset expansion, domain adaptation, and semi-supervised updates.
 
 * Optional on-device recording & replay for after-action review.
+
+## Datasets & model shape
+
+* Input tensor: (batch, 1024, 1, 2) (real/imag channels).
+
+* Label space: default 10-class modulation set (easily extendable).
+
+* Training: cross-entropy from logits (no in-graph softmax), weighted for class imbalance; robust augmentation across SNR (e.g., −20 dB to +30 dB), frequency offset, IQ imbalance.
+
+## DPU-FPGA deployment (overview)
+
+1. Train TF/Keras model → output logits.
+
+2. Quantize with Vitis-AI (calibration dataset) → INT8 Keras model.
+
+3. Compile with vai_c_tensorflow2 for your arch.json → produce .xmodel.
+
+4. Run with VART on the target (Zynq/Kria), expose an Ethernet API (/infer) for the drone/ground UI.
+
+5. Do softmax on host (DPU outputs logits/INT8 scores).
