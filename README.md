@@ -21,3 +21,23 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 * Visualize: live PSD/Waterfall, per-class confidence bars, and optional map overlays/GNSS.
 
 ![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/SAR_RF_lab.jpg)
+
+## Hardware/Software at a glance
+
+* Edge: Zedboard/Ultra96-class DPU (Vitis AI) or NVIDIA GPU/Jetson.
+
+* I/O: RTL-SDR (default), pluggable front-ends.
+
+* Runtime: Python, FastAPI (server), Dash/Plotly (UI).
+
+* Models: CNN/ResNet-style; logits-only export for DPU; Vitis-AI quantization (INT8).
+
+## Roadmap
+
+* On-drone deployment (companion computer), power budgeting, and thermal envelopes.
+
+* Bearing/DOA fusion and geotagged detections.
+
+* Dataset expansion, domain adaptation, and semi-supervised updates.
+
+* Optional on-device recording & replay for after-action review.
