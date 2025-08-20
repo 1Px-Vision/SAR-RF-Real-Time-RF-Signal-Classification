@@ -19,3 +19,5 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 * Serve over Ethernet: FastAPI inference server on the device; Dash UI client on ground station.
 
 * Visualize: live PSD/Waterfall, per-class confidence bars, and optional map overlays/GNSS.
+
+![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/SAR_RF_lab.jpg)
