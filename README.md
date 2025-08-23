@@ -27,6 +27,21 @@ Over-the-air signals inherently exhibit impairments and distortions—an essenti
 
 ![SNR](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/ACC_SNR_RF.jpg)
 
+
+## Performance Test
+
+Run the benchmark from the target board’s serial or SSH terminal.
+
+'''
+Usage: python3 test_performance.py <threads> <model.xmodel> <num_frames>
+'''
+
+* RF frames are read from rf_input.npy; each frame contains 1024 I/Q samples.
+
+* The script prints the measured performance.
+
+* The sample results shown below were obtained on a ZCU104 with two 4096-MAC DPU cores running at 300 MHz (~2.45 peak INT8 TOPS).
+
 ## Hardware/Software
 
 * Edge: Zedboard/Ultra96-class DPU (Vitis AI) or NVIDIA GPU/Jetson.
