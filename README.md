@@ -178,3 +178,7 @@ The script reads evaluation data from:
 * **Operational modes:** fixed-channel monitoring, band scanning, triggered capture, geo-fence alerts.
 
 * **Data products:** time-stamped detections, confidence, SNR, (future) coarse bearings.
+
+# Single-board SDR platform.
+Built around the Xilinx Zynq-7020 SoC and an AD936x RF transceiver (AD9363/AD9361/AD9364), this board integrates 512 MB DDR3L, 16 MB flash, and MicroSD for boot/configuration. I/O includes USB OTG, USB-JTAG/UART, and Ethernet. The Zynq architecture combines an ARM® Cortex®-A9 processing system with programmable logic, delivering a highly flexible platform where workloads can run on the ARM cores, the FPGA fabric, or a mix of both.
+
