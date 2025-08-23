@@ -76,6 +76,18 @@ Apply three parallel conv paths to the input, then fuse:
 * 3×3, dilation=3
 * Concatenate the three outputs channel-wise → Conv2D (1×1) to mix and reduce.
 
+#### Upsample Stage 1.
+
+* Upsample ×2 (nearest or bilinear), ConvBlock(192→128) → ConvBlock(128→64) (ConvBlock = Conv2D → BatchNorm → ReLU.)
+
+#### Upsample Stage 2.
+
+* Upsample ×2, ConvBlock(64→32) → ConvBlock(32→16)
+
+#### Classification head.
+
+AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten → Linear(16 → Num_Classes) → logits (apply softmax only at evaluation time)
+
 ## Performance Test
 
 Run the benchmark from the target board’s serial or SSH terminal.
