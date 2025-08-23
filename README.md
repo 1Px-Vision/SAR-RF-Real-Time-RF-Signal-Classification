@@ -66,6 +66,16 @@ Concatenate [F1, F2, F3, F4, F5_out] to expose both shallow and deep context to 
 
 Concatenate the encoder features [F1, F2, F3, F4, F5_out] after spatially aligning them (to the smallest stride). This stacked tensor is the decoder’s input.
 
+#### Feature-Scale (FS) block (context mixer).
+Apply three parallel conv paths to the input, then fuse:
+
+* 1×1, dilation=1
+
+* 3×3, dilation=2
+
+* 3×3, dilation=3
+* Concatenate the three outputs channel-wise → Conv2D (1×1) to mix and reduce.
+
 ## Performance Test
 
 Run the benchmark from the target board’s serial or SSH terminal.
