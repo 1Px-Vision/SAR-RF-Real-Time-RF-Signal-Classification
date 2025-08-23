@@ -42,6 +42,22 @@ Usage: python3 test_performance.py <threads> <model.xmodel> <num_frames>
 
 * The sample results shown below were obtained on a ZCU104 with two 4096-MAC DPU cores running at 300 MHz (~2.45 peak INT8 TOPS).
 
+## Accuracy Test
+
+On the target board (serial console or SSH), run:
+
+```
+Usage: python3 test_accuracy.py rfClassification.xmodel
+```
+
+The script reads evaluation data from:
+
+* rf_input.npy – RF frames
+
+* rf_snr.npy* – per-frame SNR values
+
+* rf_classes.npy – ground-truth modulation classes
+
 ## Hardware/Software
 
 * Edge: Zedboard/Ultra96-class DPU (Vitis AI) or NVIDIA GPU/Jetson.
