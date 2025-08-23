@@ -23,11 +23,11 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 ![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/SAR_RF_lab.jpg)
 
 ## Dataset
-Over-the-air signals inherently exhibit impairments and distortions—an essential part of any realistic dataset—including multipath fading, carrier-frequency offset, timing/phase errors, and additive white Gaussian noise (AWGN). These effects reduce the signal-to-noise ratio (SNR); lower SNR makes error-free reception increasingly difficult. For a fixed SNR, higher-order constellations (larger symbol alphabets) have denser decision regions, increasing the likelihood of detection errors. We use the [DeepSig dataset](https://www.deepsig.ai/datasets/), which includes both synthetic channel simulations and over-the-air recordings spanning 27 analog and digital modulation types. 
+Over-the-air signals inherently exhibit impairments and distortions—an essential part of any realistic dataset—including multipath fading, carrier-frequency offset, timing/phase errors, and additive white Gaussian noise (AWGN). These effects reduce the signal-to-noise ratio (SNR); lower SNR makes error-free reception increasingly difficult. For a fixed SNR, higher-order constellations (larger symbol alphabets) have denser decision regions, increasing the likelihood of detection errors. We utilize the [DeepSig dataset](https://www.deepsig.ai/datasets/), which encompasses both synthetic channel simulations and over-the-air recordings, spanning 27 analog and digital modulation types. 
 
 ![SNR](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/ACC_SNR_RF.jpg)
 
-## Hardware/Software at a glance
+## Hardware/Software
 
 * Edge: Zedboard/Ultra96-class DPU (Vitis AI) or NVIDIA GPU/Jetson.
 
