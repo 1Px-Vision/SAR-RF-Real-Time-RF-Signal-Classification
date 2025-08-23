@@ -27,6 +27,13 @@ Over-the-air signals inherently exhibit impairments and distortions—an essenti
 
 ![SNR](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/ACC_SNR_RF.jpg)
 
+## Feature-Scale SE-Net for I/Q Signal Classification
+
+A lightweight encoder–decoder CNN that fuses multi-scale features with a Feature-Scale (FS) block and channel attention (SE) for real-time classification of I/Q sequences. Default input: (1024, 1, 2).
+
+
+
+
 
 ## Performance Test
 
