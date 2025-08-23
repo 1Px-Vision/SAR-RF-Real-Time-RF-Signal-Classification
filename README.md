@@ -31,7 +31,20 @@ Over-the-air signals inherently exhibit impairments and distortions—an essenti
 
 A lightweight encoder–decoder CNN that fuses multi-scale features with a Feature-Scale (FS) block and channel attention (SE) for real-time classification of I/Q sequences. Default input: (1024, 1, 2).
 
+![dpu_M](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Model_DPU.jpg)
 
+### Encoder (5 stages)
+Repeated Conv2D → BatchNorm → ReLU blocks (ConvBlock) with stride-2 downsamples. Feature maps:
+
+* F1: (B, 16, H/2, W/2)
+
+* F2: (B, 32, H/4, W/4)
+
+* F3: (B, 64, H/8, W/8)
+
+* F4: (B,128, H/16, W/16)
+
+* F5: (B,256, H/32, W/32)
 
 
 
