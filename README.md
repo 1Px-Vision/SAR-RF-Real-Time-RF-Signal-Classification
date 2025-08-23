@@ -46,13 +46,13 @@ Repeated Conv2D → BatchNorm → ReLU blocks (ConvBlock) with stride-2 downsamp
 
 * F5: (B,256, H/32, W/32)
 
-### Squeeze-and-Excitation (SE). 
+#### Squeeze-and-Excitation (SE). 
 Adaptive 2D pooling → small MLP (or 1×1 convs) → sigmoid scale to recalibrate channels of F5, producing F5_out.
 
-### Multi-level fusion. 
+#### Multi-level fusion. 
 Concatenate [F1, F2, F3, F4, F5_out] to expose both shallow and deep context to the decoder.
 
-### Feature-Scale (FS) block. Parallel convolutions at different receptive fields, then fuse:
+#### Feature-Scale (FS) block. Parallel convolutions at different receptive fields, then fuse:
 
 * 1×1 (dilation = 1)
 
@@ -61,6 +61,10 @@ Concatenate [F1, F2, F3, F4, F5_out] to expose both shallow and deep context to 
 * 3×3 (dilation = 3)
 
 * Concatenate → Conv2D to mix scales
+
+### Decoder
+
+Concatenate the encoder features [F1, F2, F3, F4, F5_out] after spatially aligning them (to the smallest stride). This stacked tensor is the decoder’s input.
 
 ## Performance Test
 
