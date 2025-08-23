@@ -32,9 +32,9 @@ Over-the-air signals inherently exhibit impairments and distortions—an essenti
 
 Run the benchmark from the target board’s serial or SSH terminal.
 
-'''
+```
 Usage: python3 test_performance.py <threads> <model.xmodel> <num_frames>
-'''
+```
 
 * RF frames are read from rf_input.npy; each frame contains 1024 I/Q samples.
 
