@@ -91,6 +91,8 @@ AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten �
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
+The Vivado ([HW Developer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html)) and Vitis (SW Developer) download links point to the same installer; during setup you choose to install Vivado, Vitis, or both
+
 ### WLS-Ubuntu Alias
 
 ```
