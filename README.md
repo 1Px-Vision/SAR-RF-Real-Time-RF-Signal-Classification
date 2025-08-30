@@ -97,7 +97,8 @@ FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating�
 echo 'alias vitis-gui="source /tools/Xilinx/2025.1/Vitis/settings64.sh && DISPLAY=:0.0 vitis"' >> ~/.bashrc
 # (re)load your shell config
 source ~/.bashrc
-
+# Use it
+vitis-gui
 
 echo 'alias vivado-gui="source /tools/Xilinx/2025.1/Vivado/settings64.sh && DISPLAY=:0.0 vivado"' >> ~/.bashrc
 # (re)load your shell config
