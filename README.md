@@ -8,7 +8,7 @@ SAR-RF is an edge-ML stack for real-time RF signal classification designed for S
 
 * GPU (CUDA-class devices / Jetson / desktop) for rapid prototyping and high-throughput lab runs.
 
-In SAR operations, spectrum awareness helps detect, localize, and prioritize signals of interest (e.g., distress beacons, VHF/UHF comms) under tight size-weight-and-power (SWaP) constraints. SAR-RF brings robust RF classifiers to the edge so drones and field kits can act faster with limited bandwidth.
+In SAR operations, spectrum awareness helps detect, localize, and prioritize signals of interest (e.g., distress beacons, VHF/UHF communications) under tight size, weight, and power (SWaP) constraints. SAR-RF brings robust RF classifiers to the edge so drones and field kits can act faster with limited bandwidth.
 
 * Stream & preprocess IQ from RTL-SDR (or compatible front-ends): resampling, normalization, windowing.
 
@@ -91,7 +91,7 @@ AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten �
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
-The Vivado ([HW Developer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html)) and Vitis (SW Developer) download links point to the same installer; during setup you choose to install Vivado, Vitis, or both
+The Vivado ([HW Developer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html)) and Vitis ([SW Developer](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html)) download links point to the same installer; during setup, you choose to install Vivado, Vitis, or both
 
 ### WLS-Ubuntu Alias
 
