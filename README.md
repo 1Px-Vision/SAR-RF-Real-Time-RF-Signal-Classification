@@ -189,7 +189,7 @@ test -w /tools/Xilinx/PetaLinux/2024.2 && echo "write OK" || echo "NOT writable"
 ```
 ## Vivado Hardware Design
 
-[](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/models/DPU_Vivado_Radio.jpg)
+![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/models/DPU_Vivado_Radio.jpg)
 
 ## Performance Test
 
