@@ -187,7 +187,9 @@ test -w /tools/Xilinx/PetaLinux/2024.2 && echo "write OK" || echo "NOT writable"
 ./petalinux-v2024.2-11062026-installer.run --dir /tools/Xilinx/PetaLinux/2024.2
 
 ```
+## Vivado Hardware Design
 
+[](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/models/DPU_Vivado_Radio.jpg)
 
 ## Performance Test
 
