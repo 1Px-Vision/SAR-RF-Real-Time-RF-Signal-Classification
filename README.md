@@ -116,7 +116,43 @@ To complete the Linux setup for Yocto-based PetaLinux, you must install and conf
 
 ```
 sudo gedit /etc/xinetd.d/tftp
+
+service tftp
+    {
+    protocol = udp
+    port = 69
+    socket_type = dgram
+    wait = yes
+    user = nobody
+    server = /usr/sbin/in.tftpd
+    server_args = /tftpboot
+    disable = no
+    }
 ```
+Save and close the TFTP rules file, then create the TFTP root directory with the correct ownership and permissions
+
+```
+~$ sudo mkdir /tftpboot
+~$ sudo chmod -R 777 /tftpboot
+~$ sudo chown -R nobody /tftpboot
+```
+
+Finally, restart the xinetd network service for the changes to take effect.
+```
+~$ sudo /etc/init.d/xinetd stop
+~$ sudo /etc/init.d/xinetd start
+```
+
+Make the desired installation directory, apply the correct permissions, and install PetaLinux in the versioned path that matches your Vivado/Vitis release.
+```
+~$ sudo mkdir -p /tools/Xilinx/PetaLinux/2024.2/
+~$ sudo chmod -R 755 /tools/Xilinx/PetaLinux/2024.2/
+~$ sudo chown -R <user>:<user> /tools/Xilinx/PetaLinux/2024.2/
+```
+
+
+
+
 
 ## Performance Test
 
