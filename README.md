@@ -115,7 +115,10 @@ vivado-gui
 To complete the Linux setup for Yocto-based PetaLinux, you must install and configure a TFTP server. Manually create the TFTP root directory and apply the correct permissions. Begin by creating the TFTP service rules file:
 
 ```
-sudo gedit /etc/xinetd.d/tftp
+sudo apt update
+sudo apt install -y xinetd tftpd-hpa
+
+sudo nano /etc/xinetd.d/tftp
 
 service tftp
     {
