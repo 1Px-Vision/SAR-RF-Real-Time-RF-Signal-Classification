@@ -189,7 +189,12 @@ test -w /tools/Xilinx/PetaLinux/2024.2 && echo "write OK" || echo "NOT writable"
 ```
 ## Vivado Hardware Design
 
+PS/clock/reset/IRQ backbone and the standard AXI touchpoints (GP0 + HP0)
+
 ![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/models/DPU_Vivado_Radio.jpg)
+
+## Build the PetaLinux and GNU Radio
+
 
 ## Performance Test
 
