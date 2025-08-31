@@ -167,8 +167,26 @@ Make the desired installation directory, apply the correct permissions, and inst
 ~$ sudo chown -R <user>:<user> /tools/Xilinx/PetaLinux/2024.2/
 ```
 
+##### Option A 
+```
+# 1) Create just the PetaLinux path (as root)
+sudo mkdir -p /tools/Xilinx/PetaLinux/2024.2
 
+# 2) Give YOUR user ownership of that path
+sudo chown -R "$USER:$USER" /tools/Xilinx/PetaLinux/2024.2
 
+# (Alternative: keep root owner but grant ACL to you)
+# sudo setfacl -R -m u:$USER:rwx /tools/Xilinx/PetaLinux
+# sudo setfacl -d -m u:$USER:rwx /tools/Xilinx/PetaLinux
+
+# 3) Sanity check
+ls -ld /tools/Xilinx/PetaLinux/2024.2
+test -w /tools/Xilinx/PetaLinux/2024.2 && echo "write OK" || echo "NOT writable"
+
+# 4) Re-run installer (note: non-root user)
+./petalinux-v2024.2-11062026-installer.run --dir /tools/Xilinx/PetaLinux/2024.2
+
+```
 
 
 ## Performance Test
