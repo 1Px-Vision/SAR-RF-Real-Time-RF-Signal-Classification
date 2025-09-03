@@ -210,6 +210,20 @@ petalinux-config --get-hw-description=/tools/Xilinx/PetaLinux/202x.x/zedboard_20
 ```
 ![PConf](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Hardware/Petalinux_Config.jpg)
 
+### Modifying the Device Tree
+We need to add some driver configurations for SD card. Modify ``` system-user.dtsi ``` file 
+```
+/include/ "system-conf.dtsi"
+/ {
+};
+
+/* SD */
+&sdhci1 {
+        disable-wp;
+        no-1-8-v;
+};
+```
+### Config the Kernel
 
 ## Performance Test
 
