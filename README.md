@@ -225,6 +225,12 @@ We need to add some driver configurations for SD card. Modify ``` system-user.dt
 ```
 ### Config the Kernel
 
+Run the following command
+```
+petalinux-config -c kernel
+```
+
+
 ## Performance Test
 
 Run the benchmark from the target board’s serial or SSH terminal.
