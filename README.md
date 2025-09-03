@@ -208,9 +208,7 @@ cd zedboard_202x_x-petalinux
 petalinux-config --get-hw-description=/tools/Xilinx/PetaLinux/202x.x/zedboard_202x_x-petalinux/zed_accel_x/zed_dpu_radio_wrapper.xsa
 
 ```
-![PConf](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/upload/main/Hardware)
-
-
+![PConf](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Hardware/Petalinux_Config.jpg)
 
 
 ## Performance Test
