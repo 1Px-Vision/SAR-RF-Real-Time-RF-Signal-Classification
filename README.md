@@ -195,6 +195,23 @@ PS/clock/reset/IRQ backbone and the standard AXI touchpoints (GP0 + HP0)
 
 ## Build the PetaLinux and GNU Radio
 
+### Creating the PetaLinux project
+
+Create a PetaLinux project and configure the hardware with the XSA file created
+
+```
+# (env, once per shell)
+source /tools/Xilinx/PetaLinux/2024.2/settings.sh
+
+petalinux-create -t project --template zynq -n zedboard_202x_x-petalinux
+cd zedboard_202x_x-petalinux
+petalinux-config --get-hw-description=/tools/Xilinx/PetaLinux/202x.x/zedboard_202x_x-petalinux/zed_accel_x/zed_dpu_radio_wrapper.xsa
+
+```
+
+
+
+
 
 ## Performance Test
 
