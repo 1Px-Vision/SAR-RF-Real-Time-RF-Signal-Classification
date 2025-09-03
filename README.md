@@ -201,7 +201,7 @@ Create a PetaLinux project and configure the hardware with the XSA file created
 
 ```
 # (env, once per shell)
-source /tools/Xilinx/PetaLinux/2024.2/settings.sh
+source /tools/Xilinx/PetaLinux/202x.x/settings.sh
 
 petalinux-create -t project --template zynq -n zedboard_202x_x-petalinux
 cd zedboard_202x_x-petalinux
