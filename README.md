@@ -246,12 +246,67 @@ Yocto layer for the following SW to build in the system:
 * **gr-fpga_ai v3.8** - module needed for accessing DPU on FPGA
 
 #### Config the RootFS file system
+
 ```
-project-spec/meta-user/conf/user-rootfsconfig file.
 grep -n 'LAYERSERIES_COMPAT' /tools/Xilinx/PetaLinux/202x.x/zedboard_202x_x-petalinux/project-spec/meta-sdr/conf/layer.conf
 
 ```
 
+```
+ nano project-spec/meta-user/conf/user-rootfsconfig file.
+
+Note: Mention Each package in individual line
+#These packages will get added into rootfs menu entry
+
+CONFIG_gpio-demo
+CONFIG_peekpoke
+
+# Packages for base XRT support
+CONFIG_xrt
+
+# ackages for easy system management
+CONFIG_dnf
+CONFIG_e2fsprogs-resize2fs
+CONFIG_parted
+CONFIG_resize-part
+
+# Packages for Vitis-AI dependencies support
+CONFIG_packagegroup-petalinux-vitisai
+
+# Optional Packages for natively building 
+# Vitis AI applications on target board
+CONFIG_packagegroup-petalinux-self-hosted
+CONFIG_cmake
+CONFIG_packagegroup-petalinux-vitisai-dev
+CONFIG_xrt-dev
+CONFIG_opencl-clhpp-dev
+CONFIG_opencl-headers-dev
+CONFIG_packagegroup-petalinux-opencv
+CONFIG_packagegroup-petalinux-opencv-dev
+
+# Optional Packages for running i
+# Vitis-AI demo applications with GUI
+CONFIG_mesa-megadriver
+CONFIG_packagegroup-petalinux-x11
+CONFIG_packagegroup-petalinux-v4lutils
+CONFIG_packagegroup-petalinux-matchbox
+
+# Packages for date and time settings
+CONFIG_ntp
+CONFIG_ntpdate
+CONFIG_ntp-utils
+
+# Some utils
+CONFIG_git
+CONFIG_zip
+CONFIG_unzip
+
+# Gnuradio and its modules
+CONFIG_gnuradio
+CONFIG_gr-osmosdr
+CONFIG_gr-fpga-ai
+
+```
 
 ## Performance Test
 
