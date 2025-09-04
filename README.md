@@ -314,8 +314,8 @@ petalinux-config -c rootfs
 ```
 * User Packages. Enable all, don't forget for gnuradio, gr-osmosdr and gr-fpga-ai.
 * Enable OpenSSH and disable dropbear: Image Features-> Disable ssh-server-dropbear and enable ssh-server-openssh.
-* Filesystem Packages > misc >packagegroup-core-ssh-dropbear and disable packagegroup-core-ssh-dropbear.
-* Filesystem Packages > console > network > openssh and enable openssh, openssh-sftp-server, openssh-sshd, openssh-scp.
+* Filesystem Packages -> misc -> packagegroup-core-ssh-dropbear and disable packagegroup-core-ssh-dropbear.
+* Filesystem Packages -> console -> network -> openssh and enable openssh, openssh-sftp-server, openssh-sshd, openssh-scp.
 *  Image Features and enable package-management and debug_tweaks.
 
 ### Image Feature Settings
