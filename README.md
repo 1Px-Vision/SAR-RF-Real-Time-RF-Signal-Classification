@@ -318,7 +318,7 @@ petalinux-config -c rootfs
 * Filesystem Packages -> console -> network -> openssh and enable openssh, openssh-sftp-server, openssh-sshd, openssh-scp.
 *  Image Features and enable package-management and debug_tweaks.
 
-## Image Feature Settings
+### Image Feature Settings
 
 ## Vitis Platform with DPU for AI Inference
 
