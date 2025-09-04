@@ -230,6 +230,14 @@ Run the following command
 petalinux-config -c kernel
 ```
 
+![conf2](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Hardware/Petalinux_Config_2.jpg)
+
+#### Disable CPU IDLE in kernel config:
+
+* CPU Power Management > CPU Idle > CPU idle PM support - set 'N' n the [ ] menu selection.
+* CPU Power Management > CPU Frequency scaling > CPU Frequency scaling - set 'N'.
+  
+### GNU Radio software to RootFS file system
 
 ## Performance Test
 
