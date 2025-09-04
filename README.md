@@ -245,6 +245,14 @@ Yocto layer for the following SW to build in the system:
 * **gr-osmosdr v3.8** - module needed for SDR receivers
 * **gr-fpga_ai v3.8** - module needed for accessing DPU on FPGA
 
+#### Config the RootFS file system
+```
+project-spec/meta-user/conf/user-rootfsconfig file.
+grep -n 'LAYERSERIES_COMPAT' /tools/Xilinx/PetaLinux/202x.x/zedboard_202x_x-petalinux/project-spec/meta-sdr/conf/layer.conf
+
+```
+
+
 ## Performance Test
 
 Run the benchmark from the target board’s serial or SSH terminal.
