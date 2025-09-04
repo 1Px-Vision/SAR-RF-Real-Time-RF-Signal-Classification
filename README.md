@@ -320,9 +320,19 @@ petalinux-config -c rootfs
 
 ### Image Feature Settings
 
+## Vitis Platform with DPU for AI Inference
+
+## Vitis Platform
+
+## Export the Platform
 
 ## Performance Test
 
+## Install Vitis AI
+
+## DPU settings for ZCU104
+
+##  Performance Test
 Run the benchmark from the target board’s serial or SSH terminal.
 
 ```
