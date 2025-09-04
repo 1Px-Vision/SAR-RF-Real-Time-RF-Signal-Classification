@@ -307,6 +307,11 @@ CONFIG_gr-osmosdr
 CONFIG_gr-fpga-ai
 
 ```
+Config the rootfs by running this command:
+
+```
+petalinux-config -c rootfs
+```
 
 ## Performance Test
 
