@@ -239,6 +239,12 @@ petalinux-config -c kernel
   
 ### GNU Radio software to RootFS file system
 
+Yocto layer for the following SW to build in the system:
+
+* **GNU Radio v3.8** - main program
+* **gr-osmosdr v3.8** - module needed for SDR receivers
+* **gr-fpga_ai v3.8** - module needed for accessing DPU on FPGA
+
 ## Performance Test
 
 Run the benchmark from the target board’s serial or SSH terminal.
