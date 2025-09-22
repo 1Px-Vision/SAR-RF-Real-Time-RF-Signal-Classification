@@ -312,13 +312,15 @@ Config the rootfs by running this command:
 ```
 petalinux-config -c rootfs
 ```
-* User Packages. Enable all, don't forget for gnuradio, gr-osmosdr and gr-fpga-ai.
+* User Packages. Enable all, don't forget gnuradio, gr-osmosdr, and gr-fpga-ai.
 * Enable OpenSSH and disable dropbear: Image Features-> Disable ssh-server-dropbear and enable ssh-server-openssh.
 * Filesystem Packages -> misc -> packagegroup-core-ssh-dropbear and disable packagegroup-core-ssh-dropbear.
 * Filesystem Packages -> console -> network -> openssh and enable openssh, openssh-sftp-server, openssh-sshd, openssh-scp.
 *  Image Features and enable package-management and debug_tweaks.
 
 ### Image Feature Settings
+SD card image ZCU104 for RF Modulation Recognition on DPU-FPGA with GNU Radio 
+
 
 ## Vitis Platform with DPU for AI Inference
 
@@ -423,7 +425,7 @@ The script reads evaluation data from:
 * **Data products:** time-stamped detections, confidence, SNR, (future) coarse bearings.
 
 # Single-board SDR platform.
-Built around the Xilinx Zynq-7020 SoC and an AD936x RF transceiver (AD9363/AD9361/AD9364), this board integrates 512 MB DDR3L, 16 MB flash, and MicroSD for boot/configuration. I/O includes USB OTG, USB-JTAG/UART, and Ethernet. The Zynq architecture combines an ARM® Cortex®-A9 processing system with programmable logic, delivering a highly flexible platform where workloads can run on the ARM cores, the FPGA fabric, or a mix of both.
+Built around the Xilinx Zynq-7020 SoC and an AD936x RF transceiver (AD9363/AD9361/AD9364), this board integrates 512 MB DDR3L, 16 MB flash, and MicroSD for boot/configuration. I/O includes USB OTG, USB-JTAG/UART, and Ethernet. The Zynq architecture combines an ARM Cortex-A9 processing system with programmable logic, delivering a highly flexible platform where workloads can run on the ARM cores, the FPGA fabric, or a combination of both.
 
 ![HW_SDR](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Hardware/HW_SDR.jpg)
 
