@@ -321,6 +321,23 @@ petalinux-config -c rootfs
 ### Image Feature Settings
 SD card image ZCU104 for RF Modulation Recognition on DPU-FPGA with GNU Radio 
 
+* **Build PetaLinux Images**
+Run the command and wait for several hours to finish:
+```
+petalinux-build
+```
+
+Finally, verify that all images (rootfs, Image, u-boot, etc.) are built successfully in the image/linux directory. 
+Check the time of file creation.
+```
+$ ls -lrt images/Linux
+```
+
+* **Build SDK**
+Run the build --sdk command and wait for about an hour for the process to finish.
+```
+petalinux-build --sdk
+```
 
 ## Vitis Platform with DPU for AI Inference
 
