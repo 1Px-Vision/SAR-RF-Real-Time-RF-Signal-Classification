@@ -341,6 +341,49 @@ petalinux-build --sdk
 
 ## Vitis Platform with DPU for AI Inference
 
+### Prepare Files for Platform Packaging
+Created "platform" directory under your project main directory, or create it if doesn’t exist."
+```
+pwd
+/tools/workspace/zcu104
+mkdir platform
+ls
+hardware  platform  software
+cd platform
+```
+New directories for storing some previously created files.
+```
+mkdir -p pfm/boot
+mkdir -p pfm/sd_dir
+```
+
+Copy the generated Linux software boot components to pfm/boot directory.
+```
+$ cp ../xxx/images/linux/zynqmp_fsbl.elf pfm/boot/
+$ cp ../xxx/images/linux/pmufw.elf pfm/boot/
+$ cp ../xxx/images/linux/bl31.elf pfm/boot/
+$ cp ../xxx/images/linux/system.dtb pfm/boot/
+$ cp ../xxx/images/linux/u-boot-dtb.elf pfm/boot/u-boot.elf
+
+$ ls pfm/boot/
+bl31.elf  pmufw.elf  system.dtb  u-boot.elf  zynqmp_fsbl.elf
+```
+Copy the boot.scr and system.dtb to pfm/sd_dir folder.
+```
+$ cp ../xxx/images/linux/boot.scr pfm/sd_dir/
+$ cp ../xxx/images/linux/system.dtb pfm/sd_dir/
+
+$ ls pfm/sd_dir/
+boot.scr  system.dtb
+```
+Install sysroot into ``` pfm ``` folder. Before installing sysroot, you must unset the system variable ``` LD_LIBRARY_PATH ``` . Install the sysroot from the previously generated ```sdk.sh``` script.
+
+```
+ ../xxx/images/linux/sdk.sh -d pfm
+
+```
+
+
 ## Vitis Platform
 
 ## Export the Platform
