@@ -111,8 +111,39 @@ sudo docker start -ai vitis-tf2
 <details>
 <summary>Layer summary (fold to expand)</summary>
 
+</details>
 
+**Evaluation**
+- Test **loss:** `0.1244` | Test **accuracy:** `0.9223`
+- Samples: **31,949**
 
+| Class        | Precision | Recall | F1-score | Support |
+|--------------|-----------:|-------:|---------:|--------:|
+| BPSK         | 0.97 | 0.97 | 0.97 | 19,798 |
+| QPSK         | 0.91 | 1.00 | 0.95 | 1,345 |
+| GMSK         | 0.98 | 0.71 | 0.82 | 1,348 |
+| FM           | 1.00 | 0.98 | 0.99 | 1,397 |
+| OOK          | 1.00 | 1.00 | 1.00 | 1,323 |
+| OQPSK        | 1.00 | 1.00 | 1.00 | 1,449 |
+| 8PSK         | 1.00 | 0.77 | 0.87 | 1,342 |
+| 16QAM        | 0.66 | 0.96 | 0.79 | 1,332 |
+| AM-SSB-WC    | 0.95 | 0.19 | 0.32 | 1,295 |
+| AM-DSB-SC    | 0.55 | 0.99 | 0.71 | 1,320 |
+| **Overall**  | —    | —    | **Accuracy 0.92** | **31,949** |
+| **Macro avg**| 0.90 | 0.86 | 0.84 | — |
+| **Weighted** | 0.94 | 0.92 | 0.92 | — |
+
+**Notes & diagnostics**
+- **Strong:** OOK, OQPSK, FM, BPSK are near-perfect.
+- **Recall dips:** GMSK (0.71), 8PSK (0.77) → likely confusion among phase-modulated classes at lower SNRs.
+- **16QAM imbalance:** High recall (0.96) but lower precision (0.66) → too many false positives as 16QAM.
+- **AM-SSB-WC:** Very low recall (0.19) → consider more training samples, targeted augmentations, or class-specific loss reweighting.
+
+**Next steps**
+- Class-balanced sampling / focal loss for **AM-SSB-WC** and **16QAM**.
+- SNR-aware augmentation (AWGN, CFO/SFO, multipath) targeted at **GMSK/8PSK**.
+- Add a shallow residual head or cosine classifier to improve inter-class margins.
+- (Optional, for DPU): keep kernel sizes {1,3,5}, avoid unsupported ops, and fold BN for quantization-aware training.
 
 ### DPU Board Support
 Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
