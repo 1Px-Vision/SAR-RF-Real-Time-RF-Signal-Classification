@@ -88,6 +88,11 @@ Apply three parallel conv paths to the input, then fuse:
 
 AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten → Linear(16 → Num_Classes) → logits (apply softmax only at evaluation time)
 
+#### HIT: Vitis-AI container
+
+sudo docker ps -a
+sudo docker start -ai vitis-tf2
+
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
