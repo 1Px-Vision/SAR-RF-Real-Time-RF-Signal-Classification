@@ -109,78 +109,83 @@ sudo docker start -ai vitis-tf2
 - Global Average Pooling → `1×1 Conv` → `Flatten + Softmax` (10 classes).
 
 <details>
-<summary>Layer summary (fold to expand)</summary>
-| Layer (type)                     | Output Shape        | Param # | Connected to            |
-|----------------------------------|---------------------|--------:|-------------------------|
-| rf_input (InputLayer)            | (None, 1024, 1, 2)  |       0 | —                       |
-| conv2d (Conv2D)                  | (None, 512, 1, 16)  |     288 | rf_input[0][0]          |
-| batch_normalization (BatchNorm)  | (None, 512, 1, 16)  |      64 | conv2d[0][0]            |
-| re_lu (ReLU)                     | (None, 512, 1, 16)  |       0 | batch_normalization[0][0] |
-| conv2d_1 (Conv2D)                | (None, 512, 1, 16)  |   2,304 | re_lu[0][0]             |
-| batch_normalization_1 (BatchNorm)| (None, 512, 1, 16)  |      64 | conv2d_1[0][0]          |
-| re_lu_1 (ReLU)                   | (None, 512, 1, 16)  |       0 | batch_normalization_1[0][0] |
-| conv2d_2 (Conv2D)                | (None, 256, 1, 32)  |   4,608 | re_lu_1[0][0]           |
-| batch_normalization_2 (BatchNorm)| (None, 256, 1, 32)  |     128 | conv2d_2[0][0]          |
-| re_lu_2 (ReLU)                   | (None, 256, 1, 32)  |       0 | batch_normalization_2[0][0] |
-| conv2d_3 (Conv2D)                | (None, 256, 1, 32)  |   9,216 | re_lu_2[0][0]           |
-| batch_normalization_3 (BatchNorm)| (None, 256, 1, 32)  |     128 | conv2d_3[0][0]          |
-| re_lu_3 (ReLU)                   | (None, 256, 1, 32)  |       0 | batch_normalization_3[0][0] |
-| conv2d_4 (Conv2D)                | (None, 128, 1, 64)  |  18,432 | re_lu_3[0][0]           |
-| batch_normalization_4 (BatchNorm)| (None, 128, 1, 64)  |     256 | conv2d_4[0][0]          |
-| re_lu_4 (ReLU)                   | (None, 128, 1, 64)  |       0 | batch_normalization_4[0][0] |
-| conv2d_5 (Conv2D)                | (None, 128, 1, 64)  |  36,864 | re_lu_4[0][0]           |
-| batch_normalization_5 (BatchNorm)| (None, 128, 1, 64)  |     256 | conv2d_5[0][0]          |
-| re_lu_5 (ReLU)                   | (None, 128, 1, 64)  |       0 | batch_normalization_5[0][0] |
-| conv2d_6 (Conv2D)                | (None, 64, 1, 128)  |  73,728 | re_lu_5[0][0]           |
-| batch_normalization_6 (BatchNorm)| (None, 64, 1, 128)  |     512 | conv2d_6[0][0]          |
-| re_lu_6 (ReLU)                   | (None, 64, 1, 128)  |       0 | batch_normalization_6[0][0] |
-| conv2d_7 (Conv2D)                | (None, 64, 1, 128)  | 147,456 | re_lu_6[0][0]           |
-| batch_normalization_7 (BatchNorm)| (None, 64, 1, 128)  |     512 | conv2d_7[0][0]          |
-| re_lu_7 (ReLU)                   | (None, 64, 1, 128)  |       0 | batch_normalization_7[0][0] |
-| conv2d_8 (Conv2D)                | (None, 32, 1, 256)  | 294,912 | re_lu_7[0][0]           |
-| batch_normalization_8 (BatchNorm)| (None, 32, 1, 256)  |   1,024 | conv2d_8[0][0]          |
-| re_lu_8 (ReLU)                   | (None, 32, 1, 256)  |       0 | batch_normalization_8[0][0] |
-| conv2d_9 (Conv2D)                | (None, 32, 1, 256)  | 589,824 | re_lu_8[0][0]           |
-| batch_normalization_9 (BatchNorm)| (None, 32, 1, 256)  |   1,024 | conv2d_9[0][0]          |
-| re_lu_9 (ReLU)                   | (None, 32, 1, 256)  |       0 | batch_normalization_9[0][0] |
-| global_average_pooling2d (GAP2D) | (None, 1, 1, 256)   |       0 | re_lu_9[0][0]           |
-| conv2d_10 (Conv2D)               | (None, 1, 1, 16)    |   4,112 | global_average_pooling2d[0][0] |
-| conv2d_11 (Conv2D)               | (None, 1, 1, 256)   |   4,352 | conv2d_10[0][0]         |
-| multiply (Multiply)              | (None, 32, 1, 256)  |       0 | re_lu_9[0][0], conv2d_11[0][0] |
-| conv2d_12 (Conv2D)               | (None, 32, 1, 64)   |  16,384 | multiply[0][0]          |
-| conv2d_13 (Conv2D)               | (None, 32, 1, 64)   | 147,456 | multiply[0][0]          |
-| conv2d_14 (Conv2D)               | (None, 32, 1, 64)   | 147,456 | multiply[0][0]          |
-| batch_normalization_10 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_12[0][0]         |
-| batch_normalization_11 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_13[0][0]         |
-| batch_normalization_12 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_14[0][0]         |
-| re_lu_10 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_10[0][0] |
-| re_lu_11 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_11[0][0] |
-| re_lu_12 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_12[0][0] |
-| concatenate (Concatenate)        | (None, 32, 1, 192)  |       0 | re_lu_10/11/12           |
-| conv2d_15 (Conv2D)               | (None, 32, 1, 192)  |  36,864 | concatenate[0][0]       |
-| up_sampling2d (UpSampling2D)     | (None, 64, 2, 192)  |       0 | conv2d_15[0][0]         |
-| conv2d_16 (Conv2D)               | (None, 64, 2, 128)  | 221,184 | up_sampling2d[0][0]     |
-| batch_normalization_13 (BN)      | (None, 64, 2, 128)  |     512 | conv2d_16[0][0]         |
-| re_lu_13 (ReLU)                  | (None, 64, 2, 128)  |       0 | batch_normalization_13[0][0] |
-| conv2d_17 (Conv2D)               | (None, 64, 2, 64)   |  73,728 | re_lu_13[0][0]          |
-| batch_normalization_14 (BN)      | (None, 64, 2, 64)   |     256 | conv2d_17[0][0]         |
-| re_lu_14 (ReLU)                  | (None, 64, 2, 64)   |       0 | batch_normalization_14[0][0] |
-| up_sampling2d_1 (UpSampling2D)   | (None, 128, 4, 64)  |       0 | re_lu_14[0][0]          |
-| conv2d_18 (Conv2D)               | (None, 128, 4, 32)  |  18,432 | up_sampling2d_1[0][0]   |
-| batch_normalization_15 (BN)      | (None, 128, 4, 32)  |     128 | conv2d_18[0][0]         |
-| re_lu_15 (ReLU)                  | (None, 128, 4, 32)  |       0 | batch_normalization_15[0][0] |
-| conv2d_19 (Conv2D)               | (None, 128, 4, 16)  |   4,608 | re_lu_15[0][0]          |
-| batch_normalization_16 (BN)      | (None, 128, 4, 16)  |      64 | conv2d_19[0][0]         |
-| re_lu_16 (ReLU)                  | (None, 128, 4, 16)  |       0 | batch_normalization_16[0][0] |
-| average_pooling2d (AvgPool2D)    | (None, 1, 1, 16)    |       0 | re_lu_16[0][0]          |
-| conv2d_20 (Conv2D)               | (None, 1, 1, 10)    |     170 | average_pooling2d[0][0] |
-| flatten (Flatten)                | (None, 10)          |       0 | conv2d_20[0][0]         |
-| activation (Activation)          | (None, 10)          |       0 | flatten[0][0]           |
+<summary><b>Layer summary (click to expand)</b></summary>
+
+<!-- Keep a blank line after <summary> for GitHub to render the table -->
+
+| Layer (type)                     | Output Shape        | Param # | Connected to                         |
+|----------------------------------|---------------------|--------:|--------------------------------------|
+| rf_input (InputLayer)            | (None, 1024, 1, 2)  |       0 | —                                    |
+| conv2d (Conv2D)                  | (None, 512, 1, 16)  |     288 | rf_input[0][0]                       |
+| batch_normalization (BatchNorm)  | (None, 512, 1, 16)  |      64 | conv2d[0][0]                         |
+| re_lu (ReLU)                     | (None, 512, 1, 16)  |       0 | batch_normalization[0][0]            |
+| conv2d_1 (Conv2D)                | (None, 512, 1, 16)  |   2,304 | re_lu[0][0]                          |
+| batch_normalization_1 (BatchNorm)| (None, 512, 1, 16)  |      64 | conv2d_1[0][0]                       |
+| re_lu_1 (ReLU)                   | (None, 512, 1, 16)  |       0 | batch_normalization_1[0][0]          |
+| conv2d_2 (Conv2D)                | (None, 256, 1, 32)  |   4,608 | re_lu_1[0][0]                        |
+| batch_normalization_2 (BatchNorm)| (None, 256, 1, 32)  |     128 | conv2d_2[0][0]                       |
+| re_lu_2 (ReLU)                   | (None, 256, 1, 32)  |       0 | batch_normalization_2[0][0]          |
+| conv2d_3 (Conv2D)                | (None, 256, 1, 32)  |   9,216 | re_lu_2[0][0]                        |
+| batch_normalization_3 (BatchNorm)| (None, 256, 1, 32)  |     128 | conv2d_3[0][0]                       |
+| re_lu_3 (ReLU)                   | (None, 256, 1, 32)  |       0 | batch_normalization_3[0][0]          |
+| conv2d_4 (Conv2D)                | (None, 128, 1, 64)  |  18,432 | re_lu_3[0][0]                        |
+| batch_normalization_4 (BatchNorm)| (None, 128, 1, 64)  |     256 | conv2d_4[0][0]                       |
+| re_lu_4 (ReLU)                   | (None, 128, 1, 64)  |       0 | batch_normalization_4[0][0]          |
+| conv2d_5 (Conv2D)                | (None, 128, 1, 64)  |  36,864 | re_lu_4[0][0]                        |
+| batch_normalization_5 (BatchNorm)| (None, 128, 1, 64)  |     256 | conv2d_5[0][0]                       |
+| re_lu_5 (ReLU)                   | (None, 128, 1, 64)  |       0 | batch_normalization_5[0][0]          |
+| conv2d_6 (Conv2D)                | (None, 64, 1, 128)  |  73,728 | re_lu_5[0][0]                        |
+| batch_normalization_6 (BatchNorm)| (None, 64, 1, 128)  |     512 | conv2d_6[0][0]                       |
+| re_lu_6 (ReLU)                   | (None, 64, 1, 128)  |       0 | batch_normalization_6[0][0]          |
+| conv2d_7 (Conv2D)                | (None, 64, 1, 128)  | 147,456 | re_lu_6[0][0]                        |
+| batch_normalization_7 (BatchNorm)| (None, 64, 1, 128)  |     512 | conv2d_7[0][0]                       |
+| re_lu_7 (ReLU)                   | (None, 64, 1, 128)  |       0 | batch_normalization_7[0][0]          |
+| conv2d_8 (Conv2D)                | (None, 32, 1, 256)  | 294,912 | re_lu_7[0][0]                        |
+| batch_normalization_8 (BatchNorm)| (None, 32, 1, 256)  |   1,024 | conv2d_8[0][0]                       |
+| re_lu_8 (ReLU)                   | (None, 32, 1, 256)  |       0 | batch_normalization_8[0][0]          |
+| conv2d_9 (Conv2D)                | (None, 32, 1, 256)  | 589,824 | re_lu_8[0][0]                        |
+| batch_normalization_9 (BatchNorm)| (None, 32, 1, 256)  |   1,024 | conv2d_9[0][0]                       |
+| re_lu_9 (ReLU)                   | (None, 32, 1, 256)  |       0 | batch_normalization_9[0][0]          |
+| global_average_pooling2d (GAP2D) | (None, 1, 1, 256)   |       0 | re_lu_9[0][0]                        |
+| conv2d_10 (Conv2D)               | (None, 1, 1, 16)    |   4,112 | global_average_pooling2d[0][0]       |
+| conv2d_11 (Conv2D)               | (None, 1, 1, 256)   |   4,352 | conv2d_10[0][0]                      |
+| multiply (Multiply)              | (None, 32, 1, 256)  |       0 | re_lu_9[0][0]; conv2d_11[0][0]       |
+| conv2d_12 (Conv2D)               | (None, 32, 1, 64)   |  16,384 | multiply[0][0]                       |
+| conv2d_13 (Conv2D)               | (None, 32, 1, 64)   | 147,456 | multiply[0][0]                       |
+| conv2d_14 (Conv2D)               | (None, 32, 1, 64)   | 147,456 | multiply[0][0]                       |
+| batch_normalization_10 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_12[0][0]                      |
+| batch_normalization_11 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_13[0][0]                      |
+| batch_normalization_12 (BN)      | (None, 32, 1, 64)   |     256 | conv2d_14[0][0]                      |
+| re_lu_10 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_10[0][0]         |
+| re_lu_11 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_11[0][0]         |
+| re_lu_12 (ReLU)                  | (None, 32, 1, 64)   |       0 | batch_normalization_12[0][0]         |
+| concatenate (Concatenate)        | (None, 32, 1, 192)  |       0 | re_lu_10/11/12                       |
+| conv2d_15 (Conv2D)               | (None, 32, 1, 192)  |  36,864 | concatenate[0][0]                    |
+| up_sampling2d (UpSampling2D)     | (None, 64, 2, 192)  |       0 | conv2d_15[0][0]                      |
+| conv2d_16 (Conv2D)               | (None, 64, 2, 128)  | 221,184 | up_sampling2d[0][0]                  |
+| batch_normalization_13 (BN)      | (None, 64, 2, 128)  |     512 | conv2d_16[0][0]                      |
+| re_lu_13 (ReLU)                  | (None, 64, 2, 128)  |       0 | batch_normalization_13[0][0]         |
+| conv2d_17 (Conv2D)               | (None, 64, 2, 64)   |  73,728 | re_lu_13[0][0]                       |
+| batch_normalization_14 (BN)      | (None, 64, 2, 64)   |     256 | conv2d_17[0][0]                      |
+| re_lu_14 (ReLU)                  | (None, 64, 2, 64)   |       0 | batch_normalization_14[0][0]         |
+| up_sampling2d_1 (UpSampling2D)   | (None, 128, 4, 64)  |       0 | re_lu_14[0][0]                       |
+| conv2d_18 (Conv2D)               | (None, 128, 4, 32)  |  18,432 | up_sampling2d_1[0][0]                |
+| batch_normalization_15 (BN)      | (None, 128, 4, 32)  |     128 | conv2d_18[0][0]                      |
+| re_lu_15 (ReLU)                  | (None, 128, 4, 32)  |       0 | batch_normalization_15[0][0]         |
+| conv2d_19 (Conv2D)               | (None, 128, 4, 16)  |   4,608 | re_lu_15[0][0]                       |
+| batch_normalization_16 (BN)      | (None, 128, 4, 16)  |      64 | conv2d_19[0][0]                      |
+| re_lu_16 (ReLU)                  | (None, 128, 4, 16)  |       0 | batch_normalization_16[0][0]         |
+| average_pooling2d (AvgPool2D)    | (None, 1, 1, 16)    |       0 | re_lu_16[0][0]                       |
+| conv2d_20 (Conv2D)               | (None, 1, 1, 10)    |     170 | average_pooling2d[0][0]              |
+| flatten (Flatten)                | (None, 10)          |       0 | conv2d_20[0][0]                      |
+| activation (Activation)          | (None, 10)          |       0 | flatten[0][0]                         |
 
 **Total params:** 1,858,074  
 **Trainable params:** 1,855,226  
 **Non-trainable params:** 2,848
+
 </details>
+
 
 **Evaluation**
 - Test **loss:** `0.1244` | Test **accuracy:** `0.9223`
