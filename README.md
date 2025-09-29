@@ -94,6 +94,26 @@ sudo docker ps -a
 sudo docker start -ai vitis-tf2
 ```
 
+### 🧪 Training
+
+**Task:** RF modulation classification (10 classes)  
+**Input shape:** `(1024, 1, 2)` → (time × height × I/Q channels)  
+**Framework:** TensorFlow 2.12 (Vitis-AI container)  
+**Params:** **1,858,074** (trainable: 1,855,226)
+
+**Model highlights**
+- Stacked `Conv2D + BN + ReLU` downsampling path (16 → 256 channels).
+- Lightweight channel attention (SE/ECA-style 1×1 gating).
+- Inception-like triple branch at 64-channel scale, then concat → `192` channels.
+- Two upsampling stages with `Conv2D` refinement.
+- Global Average Pooling → `1×1 Conv` → `Flatten + Softmax` (10 classes).
+
+<details>
+<summary>Layer summary (fold to expand)</summary>
+
+
+
+
 ### DPU Board Support
 Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 
