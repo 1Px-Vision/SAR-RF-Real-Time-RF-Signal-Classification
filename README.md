@@ -111,6 +111,13 @@ sudo docker start -ai vitis-tf2
 <details>
 <summary>Layer summary (fold to expand)</summary>
 
+rf_input → Conv2D×2 → BN+ReLU → … → channels: 16→32→64→128→256
+SE/ECA gate: GAP → 1×1 Conv (16) → 1×1 Conv (256) → Multiply
+Inception-like: 3 × Conv2D(64) → BN+ReLU → Concat(192)
+Decoder: UpSample×2 with Conv2D (128→64→32→16)
+Head: GAP → 1×1 Conv(10) → Flatten → Softmax
+Total params: 1,858,074 (trainable: 1,855,226)
+
 </details>
 
 **Evaluation**
