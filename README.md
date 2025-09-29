@@ -93,6 +93,43 @@ AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten �
 sudo docker ps -a
 sudo docker start -ai vitis-tf2
 
+### DPU Board Support
+Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
+
+## DPU-FPGA Platform Support Matrix
+
+| Platform            | DPU Arch | # Cores | Verified Status | Notes |
+|---------------------|:-------:|:------:|:---------------:|-------|
+| **KV260 SOM**       | B4096   |   1    | ✅ Official      | In AMD Vitis-AI Quick-Start list |
+| **ZCU102**          | B4096   |   2    | ✅ Official      | Officially supported reference board |
+| **ZCU104**          | B4096   |   2    | ✅ Official      | Officially supported reference board |
+| **KR260 SOM**       | B4096   |   1    | ✅ Community     | Verified by AMD TRD / user builds |
+| **Pynq-ZU**         | B4096   |   1    | ✅ Community     | Works via DPU-PYNQ overlay |
+| **Ultra96 v2**      | B1600   |   1    | ✅ Community     | Runs B1600 via DPU-PYNQ |
+| **ZCU111**          | B4096   |   2    | ⚠️ Community     | RFSoC board – custom platform required |
+| **ZCU216**          | B4096   |   2    | ⚠️ Community     | RFSoC board – custom platform required |
+| **ZCU208**          | B4096   |   2    | ⚠️ Community     | Reported to work with custom build |
+| **RFSoC 2×2**       | B4096   |   2    | ⚠️ Community     | Custom Vitis/PetaLinux build needed |
+| **RFSoC 4×2**       | B4096   |   2    | ⚠️ Community     | Custom Vitis/PetaLinux build needed |
+| **ZCU106**          | B4096   |   2    | ⚠️ Community     | Not in quick-start; works via custom flow |
+| **Genesys ZU-5EV**  | B4096   |   1    | ❓ Unverified     | No public confirmation yet |
+| **T1 Telco RFSoC**  | B4096   |   2    | ❓ Unverified     | Likely feasible but not confirmed |
+| **T1 Telco MPSoC**  | B4096   |   2    | ❓ Unverified     | Likely feasible but not confirmed |
+| **TySOM-3A-ZU19EG** | B4096   |   2    | ❓ Unverified     | No public record of DPU build |
+| **TySOM-3-ZU7EV**   | B4096   |   2    | ❓ Unverified     | No public record of DPU build |
+| **Ultra96 v1**      | B1600   |   1    | ⚠️ Community     | Older DPU-PYNQ demos exist; not maintained |
+| **UltraZed-EG**     | B4096   |   1    | ⚠️ Community     | Possible with custom design |
+| **ZCU1285**         | B4096   |   2    | ❓ Unverified     | No confirmation found |
+| **ZUBoard-1CG**     |  B800   |   1    | ❓ Unverified     | Very limited resources; no public DPU port |
+
+> ✅ Official – in AMD Vitis-AI Quick-Start reference platforms  
+> ✅ Community – successfully demonstrated by community / DPU-PYNQ / TRD  
+> ⚠️ Community – reported to work but needs custom Vitis/PetaLinux build  
+> ❓ Unverified – no confirmed deployment found yet
+
+
+
+
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
