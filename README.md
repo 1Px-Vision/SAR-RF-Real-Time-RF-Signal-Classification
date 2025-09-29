@@ -89,9 +89,10 @@ Apply three parallel conv paths to the input, then fuse:
 AdaptivePool2D to (B, 16, 1, 1) (global pooling; input-size agnostic), Flatten → Linear(16 → Num_Classes) → logits (apply softmax only at evaluation time)
 
 #### HIT: Vitis-AI container
-
+```
 sudo docker ps -a
 sudo docker start -ai vitis-tf2
+```
 
 ### DPU Board Support
 Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
