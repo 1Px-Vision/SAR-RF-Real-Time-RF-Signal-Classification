@@ -258,6 +258,11 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 > ❓ Unverified – no confirmed deployment found yet
 
 
+## DPU Testing: Kria Kr-260 
+
+dpu.bit FPGA configuration bitstream for the Programmable Logic (PL).
+dpu.hwh  Hardware handoff & metadata file (XML) that describes the block design: IP names, AXI address map, interrupts, GPIOs, clocks.
+dpu.xclbin Xilinx Kernel Binary (Vitis) – a packaged container for one or more hardware kernels (here, the DPU) with metadata for XRT.
 
 
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
