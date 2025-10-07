@@ -260,6 +260,8 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 
 ## DPU Testing: Kria Kr-260 
 
+![kria_1](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/DPU_Application.jpg)
+
 dpu.bit FPGA configuration bitstream for the Programmable Logic (PL).
 dpu.hwh  Hardware handoff & metadata file (XML) that describes the block design: IP names, AXI address map, interrupts, GPIOs, clocks.
 dpu.xclbin Xilinx Kernel Binary (Vitis) – a packaged container for one or more hardware kernels (here, the DPU) with metadata for XRT.
