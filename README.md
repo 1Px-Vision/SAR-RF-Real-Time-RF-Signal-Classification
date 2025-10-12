@@ -281,7 +281,7 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 
 ### Compilation
 
-1 Create a arch.json file with configurate the DPU "fingerprint" ;
+1. Create a arch.json file with configurate the DPU "fingerprint" ;
 arch_b1152.json
 ```
 {
@@ -289,7 +289,7 @@ arch_b1152.json
 }
 ```
 
-2 source command 
+2. source command 
 ```
 !vai_c_tensorflow2 \
   -m quantize_results/quantized_model.h5 \
