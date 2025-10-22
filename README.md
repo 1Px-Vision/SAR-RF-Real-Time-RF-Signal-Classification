@@ -2,11 +2,11 @@
 
 ![](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/SAR_RF.jpg)
 
-SAR-RF is an edge-ML stack for real-time RF signal classification designed for Search-and-Rescue (SAR) scenarios and future UAV/drone deployment. It ingests complex IQ samples from an SDR, classifies the modulation in real time, and exposes results to a lightweight UI and mapping layer. The project targets two hardware paths:
+SAR-RF is an edge-ML stack for real-time RF signal classification designed for Search-and-Rescue (SAR) scenarios and future UAV/drone deployment. It ingests complex IQ samples from an SDR, classifies the modulation in real-time, and exposes the results to a lightweight UI and mapping layer. The project targets two hardware paths:
 
 * DPU-FPGA (Vitis AI on Zynq/Zedboard-class devices) for low-power, on-board inference (INT8).
 
-* GPU (CUDA-class devices / Jetson / desktop) for rapid prototyping and high-throughput lab runs.
+* GPU (CUDA-class devices / FPGA / Jetson / desktop) for rapid prototyping and high-throughput lab runs.
 
 In SAR operations, spectrum awareness helps detect, localize, and prioritize signals of interest (e.g., distress beacons, VHF/UHF communications) under tight size, weight, and power (SWaP) constraints. SAR-RF brings robust RF classifiers to the edge so drones and field kits can act faster with limited bandwidth.
 
@@ -16,7 +16,7 @@ In SAR operations, spectrum awareness helps detect, localize, and prioritize sig
 
 * Run anywhere: INT8 on DPU (Vitis AI) or FP32/FP16 on GPU with a shared model interface.
 
-* Serve over Ethernet: FastAPI inference server on the device; Dash UI client on ground station.
+* Serve over Ethernet: FastAPI inference server on the device; Dash UI client on the ground station.
 
 * Visualize: live PSD/Waterfall, per-class confidence bars, and optional map overlays/GNSS.
 
@@ -380,7 +380,16 @@ echo '{ "shell_type" : "XRT_FLAT", "num_slots": "1" }' > shell.json
    1. Using Balena Etcher flash the petalinux-sdimage.wic.gz onto a 16 GB SD Card.
    2. login with username petalinux and set a new password.
    3. Set up the ethernet connection and have an IP address for SFTP.
-   
+
+### STEP 5: Creating an Accelerated application
+1. Make a directory in your user space i.e., /home/petalinux
+```
+sudo mkdir myAPP
+```
+2. Copy kr260.bit.bin, kr260.dtbo, shell.json to myApp directory.
+3. List the apps, and you should see the following output.
+
+4. 
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
