@@ -376,6 +376,11 @@ echo '{ "shell_type" : "XRT_FLAT", "num_slots": "1" }' > shell.json
    * kr260.dtbo
    * shell.json
 
+### STEP 4: Boot the KR260 with petalinux
+   1. Using Balena Etcher flash the petalinux-sdimage.wic.gz onto a 16 GB SD Card.
+   2. login with username petalinux and set a new password.
+   3. Set up the ethernet connection and have an IP address for SFTP.
+   
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
