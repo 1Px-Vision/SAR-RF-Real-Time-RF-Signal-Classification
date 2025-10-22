@@ -304,7 +304,16 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
    * Enable FPGA MANAGER
    * Disable TFTPboot copy
    * Image package type INITRD, name as petalinux-initramfs-image
-
+     
+5. Run the Kernel Configuration
+   ```
+   petalinux-config -c kernel
+   Device Drivers -->
+      Misc devices -->
+            <*> Xilinux Deep learning Processing Unit (DPU) Driver
+   ```
+6. Copy the necessary recipes to our petalinux project directory
+   
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
