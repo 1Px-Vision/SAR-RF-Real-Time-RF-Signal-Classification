@@ -395,7 +395,7 @@ sudo xmutil listapps
 ```
 sudo mv myApp/ /lib/firmware/xilinx/
 ``` 
-5.List the apps and you should see the below output
+5. List the apps and you should see the following output
 ```
 sudo xmutil listapps
 ```
