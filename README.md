@@ -336,11 +336,16 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
   ```
    petalinux-config -c rootfs
   ```
-10. Build the project
+10. Build the project, time estimate around 1-2hrs
 ```
    petalinux-build
 ```
-
+Optional 
+11. Create the WIC petalinux package
+```
+   petalinux-package --wic --images-dir images/linux/ --bootfiles "ramdisk.cpio.gz.u-boot,boot.scr,Image,system.dtb,system-zynqmp-sck-kv-g-revB.dtb" --disk-name "mmcblk1" --wic-extra-args "-c gzip"
+```
+### STEP 3: Generating the Device Tree Overlay
 
 ### Compilation
 
