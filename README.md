@@ -318,11 +318,13 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
    ```
 6. Copy the necessary recipes to our petalinux project directory
   ```
-   cp -r ..../project-spec/meta-user/recipes-kernel/ ./project-spec/meta-user/
-   cp -r .../project-spec/meta-user/recipes-tools/ ./project-spec/meta-user/
-   cp -r .../project-spec/meta-user/recipes-vitis-ai/ ./project-spec/meta-user/
-   cp -r .../project-spec/meta-user/recipes-apps/ ./project-spec/meta-user/
-     ```
+      cp -r ..../project-spec/meta-user/recipes-kernel/ ./project-spec/meta-user/
+      cp -r .../project-spec/meta-user/recipes-tools/ ./project-spec/meta-user/
+      cp -r .../project-spec/meta-user/recipes-vitis-ai/ ./project-spec/meta-user/
+      cp -r .../project-spec/meta-user/recipes-apps/ ./project-spec/meta-user/
+
+  ```
+
 7. Append the CONFIG_x lines below to ..../project-spec/meta-user/conf/user-rootfsconfig file
    ```
       CONFIG_vitis-ai-library
