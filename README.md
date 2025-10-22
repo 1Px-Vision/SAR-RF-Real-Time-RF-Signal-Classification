@@ -288,7 +288,7 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 ## KR260 DPU-TRD Petalinux 2022.1 
 
 ### STEP 1: Hardware Platform Generation.
-In the folder prj_kria_2022, container bitstream generation files necessary for generating image KR260.xpr, top.bit,top_wrapper.xs.
+In the folder prj_kria_2022, container bitstream generation files necessary for generating image KR260.xpr, top.bit,top_wrapper.xsa.
 
 ### STEP 2: Petalinux 2022.1 build from BSP.
 
@@ -341,21 +341,34 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
   ```
    petalinux-config -c rootfs
   ```
-10. Build the project, time estimate around 1-2hrs
+10. Build the project, time estimate around 1-2 hours
 ```
-
    petalinux-build
-   
 ```
 Optional 
 11. Create the WIC petalinux package
 ```
-
-   petalinux-package --wic --images-dir images/linux/ --bootfiles "ramdisk.cpio.gz.u-boot,boot.scr,Image,system.dtb,system-zynqmp-sck-kv-g-revB.dtb" --disk-name "mmcblk1" --wic-extra-args "-c gzip"
-   
+   petalinux-package --wic --images-dir images/linux/ --bootfiles "ramdisk.cpio.gz.u-boot, boot.scr, Image, system.dtb,system-zynqmp-sck-kv-g-revB.dtb" --disk-name "mmcblk1" --wic-extra-args "-c gzip" 
 ```
 ### STEP 3: Generating the Device Tree Overlay
+1. Source XSCT on path ...PetaLinuxTool/tools/xsct/bin
+```   
+./xsct
+```
+2. Creating a device tree domain and generating the device tree.
+```     
+   xsct% createdts -hw .../prj/top_wrapper.xsa -zocl -platform-name KR260 -git-branch xlnx_rel_v2022.1 -overlay -compile -out .../projects/prj/KR260_dt
+   xsct% exit
+```
+3. Compile the device tree
+```
+dtc -@ -O dtb -o ./kr260.dtbo ./kr260_dt/kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtsi
 
+``` 
+4. Create shell.json
+```   
+echo '{ "shell_type" : "XRT_FLAT", "num_slots": "1" }' > shell.json
+```
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
