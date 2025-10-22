@@ -759,17 +759,6 @@ Install sysroot into ``` pfm ``` folder. Before installing sysroot, you must uns
 
 ```
 
-
-## Vitis Platform
-
-## Export the Platform
-
-## Performance Test
-
-## Install Vitis AI
-
-## DPU settings for ZCU104
-
 ##  Performance Test
 Run the benchmark from the target board’s serial or SSH terminal.
 
