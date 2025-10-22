@@ -369,6 +369,13 @@ dtc -@ -O dtb -o ./kr260.dtbo ./kr260_dt/kr260/psu_cortexa53_0/device_tree_domai
 ```   
 echo '{ "shell_type" : "XRT_FLAT", "num_slots": "1" }' > shell.json
 ```
+5. Make a copy of top_wrapper.bin in a different directory and rename it to kr260.bit.bin
+6. At this time, you should have the following files ready
+   *petalinux-sdimage.wic.gz
+   *kr260.bit.bin
+   *kr260.dtbo
+   *shell.json
+
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
