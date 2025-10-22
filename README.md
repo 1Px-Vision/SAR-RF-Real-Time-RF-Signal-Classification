@@ -291,6 +291,7 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 In the folder prj_kria_2022, container bitstream generation files necessary for generating image KR260.xpr, top.bit,top_wrapper.xs.
 
 ### STEP 2: Petalinux 2022.1 build from BSP.
+
 1. Download [xilinx-kr260-starterkit-v2022.1-05140151.bsp](https://adaptivesupport.amd.com/s/article/000034113?language=en_US)
 2.  Create the petalinux project , import source settings.sh in the petalinux directory
    ```
@@ -325,15 +326,14 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
 
   ```
 
-7. Append the CONFIG_x lines below to ..../project-spec/meta-user/conf/user-rootfsconfig file
-   
+7. Append the CONFIG_x lines below to ..../project-spec/meta-user/conf/user-rootfsconfig file   
    ```
       CONFIG_vitis-ai-library
       CONFIG_vitis-ai-library-dev
       CONFIG_vitis-ai-library-dbg
    ```
    
-9. Update petalinuxbsp.conf with the following lines.
+8. Update petalinuxbsp.conf with the following lines.
     
    ```
       IMAGE_INSTALL:append = " vitis-ai-library "
