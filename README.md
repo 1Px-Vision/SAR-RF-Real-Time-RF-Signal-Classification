@@ -388,8 +388,56 @@ sudo mkdir myAPP
 ```
 2. Copy kr260.bit.bin, kr260.dtbo, shell.json to myApp directory.
 3. List the apps, and you should see the following output.
-
-4. 
+```   
+sudo xmutil listapps
+```
+4. Move the myApp directory
+```
+sudo mv myApp/ /lib/firmware/xilinx/
+``` 
+5.List the apps and you should see the below output
+```
+sudo xmutil listapps
+```
+6. Unload the current application
+```
+sudo xmutil unloadapp
+```   
+7. Load the myApp application
+```
+sudo xmutil loadapp myApp
+```
+8. Execute show_dpu or xdputil query command
+```
+sudo show_dpu
+device_core_id=0 device= 0 core = 0 fingerprint = 0x101000016010407 batch = 1 full_cu_name=unknown:dpu0
+```
+```
+sudo xdputil query
+{
+"DPU IP Spec":{
+"DPU Core Count":1,
+"IP version":"v4.0.0",
+"enable softmax":"False"
+},
+"VAI Version":{
+"libvart-runner.so":"Xilinx vart-runner Version: 2.5.0-c26eae36f034d5a2f9b2a7bfe816b8c43311a4f8  2023-01-22-01:10:05 ",
+"libvitis_ai_library-dpu_task.so":"Xilinx vitis_ai_library dpu_task Version: 2.5.0-c26eae36f034d5a2f9b2a7bfe816b8c43311a4f8  2022-06-15 07:33:00 [UTC] ",
+"libxir.so":"Xilinx xir Version: xir-c26eae36f034d5a2f9b2a7bfe816b8c43311a4f8 2023-01-22-01:08:11",
+"target_factory":"target-factory.2.5.0 c26eae36f034d5a2f9b2a7bfe816b8c43311a4f8"
+},
+"kernels":[
+{
+"DPU Arch":"DPUCZDX8G_ISA1_B4096",
+"DPU Frequency (MHz)":275,
+"cu_idx":0,
+"fingerprint":"0x101000016010407",
+"is_vivado_flow":true,
+"name":"DPU Core 0"
+}
+]
+}
+```
 ### Compilation
 
 1. Create an arch.json file to configure xmodel with the DPU information, "fingerprint" the dpu.bit file.  
