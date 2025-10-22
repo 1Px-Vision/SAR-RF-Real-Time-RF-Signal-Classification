@@ -280,9 +280,30 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 * .xdc: Xilinx Design Constraint file. Indicate pin mapping, and pin constraints in Vivado.
 * .xml: The XML board file is a configuration file used by Vivado to create board related configuration.
 
-.xclbin: Device binary file, also known as an AXLF file. It is an extensible, future-proof container of (bitstream/platform) hardware as well as software (MPSoC/MicroBlaze ELF files) design data. In the flows above, the .xclbin file has information about the address space of the PL design.
+.xclbin: Device binary file, also known as an AXLF file. It is an extensible, future-proof container for both (bitstream/platform) hardware and software (MPSoC/MicroBlaze ELF files) design data. In the flows above, the .xclbin file has information about the address space of the PL design.
 
 .xsa: Xilinx Shell Archive. Vivado generates these files to contain the required hardware information for developing embedded software with Vitis and can only be opened with AMD tools.
+
+
+## KR260 DPU-TRD Petalinux 2022.1 
+
+### STEP 1: Hardware Platform Generation.
+In the folder prj_kria_2022, container bitstream generation files necessary for generating image KR260.xpr, top.bit,top_wrapper.xs.
+
+### STEP 2: Petalinux 2022.1 build from BSP.
+1. Download [xilinx-kr260-starterkit-v2022.1-05140151.bsp](https://adaptivesupport.amd.com/s/article/000034113?language=en_US)
+2.  Create the petalinux project , import source settings.sh in the petalinux directory
+   ```
+   petalinux-create -t project -s ../inputs/xilinx-kr260-starterkit-v2022.1-05140151.bsp --name dpuOS
+   ```
+3. Import the hardware platform to the petalinux project
+     ```
+    petalinux-config --get-hw-description=.../prj_kria_2022/prj/
+     ```
+4. In the configuration screen make the following settings,
+   *Enable FPGA MANAGER
+   *Disable TFTPboot copy
+   *Image package type INITRD, name as petalinux-initramfs-image
 
 ### Compilation
 
