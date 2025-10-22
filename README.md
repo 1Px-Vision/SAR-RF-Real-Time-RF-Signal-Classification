@@ -334,20 +334,17 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
    ```
    
 8. Update petalinuxbsp.conf with the following lines.
-    
    ```
       IMAGE_INSTALL:append = " vitis-ai-library "
       IMAGE_INSTALL:append = " vitis-ai-library-dev "
       IMAGE_INSTALL:append = " dpu-sw-optimize "
       IMAGE_INSTALL:append = " resnet50 "
- ```
-
-10. Run the rootfs configuration. Select the required packages, Don't select vitis-ai-library-dbg, including GNURADIO
-
   ```
 
+9. Run the rootfs configuration. Select the required packages, Don't select vitis-ai-library-dbg, including GNURADIO
+
+  ```
    petalinux-config -c rootfs
-   
   ```
 10. Build the project, time estimate around 1-2hrs
 ```
