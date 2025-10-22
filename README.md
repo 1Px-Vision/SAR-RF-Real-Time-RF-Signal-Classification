@@ -294,11 +294,15 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
 1. Download [xilinx-kr260-starterkit-v2022.1-05140151.bsp](https://adaptivesupport.amd.com/s/article/000034113?language=en_US)
 2.  Create the petalinux project , import source settings.sh in the petalinux directory
    ```
+
    petalinux-create -t project -s ../inputs/xilinx-kr260-starterkit-v2022.1-05140151.bsp --name dpuOS
+
    ```
 3. Import the hardware platform to the petalinux project
      ```
+     
     petalinux-config --get-hw-description=.../prj_kria_2022/prj/
+     
      ```
 4. In the configuration screen make the following settings,
    * Enable FPGA MANAGER
@@ -334,16 +338,22 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
  ```
 9. Run the rootfs configuration. Select the required packages, Don't select vitis-ai-library-dbg, including GNURADIO
   ```
+
    petalinux-config -c rootfs
+   
   ```
 10. Build the project, time estimate around 1-2hrs
 ```
+
    petalinux-build
+   
 ```
 Optional 
 11. Create the WIC petalinux package
 ```
+
    petalinux-package --wic --images-dir images/linux/ --bootfiles "ramdisk.cpio.gz.u-boot,boot.scr,Image,system.dtb,system-zynqmp-sck-kv-g-revB.dtb" --disk-name "mmcblk1" --wic-extra-args "-c gzip"
+   
 ```
 ### STEP 3: Generating the Device Tree Overlay
 
