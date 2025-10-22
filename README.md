@@ -279,10 +279,8 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 * .wic: The .wic image helps simplify the process of deploying a platform project image to test by including the required boot, rootfs, and related partitions in the image. As a result, all you need to do is copy the image to a storage device and use it to boot the hardware target device.
 * .xdc: Xilinx Design Constraint file. Indicate pin mapping, and pin constraints in Vivado.
 * .xml: The XML board file is a configuration file used by Vivado to create board related configuration.
-
-.xclbin: Device binary file, also known as an AXLF file. It is an extensible, future-proof container for both (bitstream/platform) hardware and software (MPSoC/MicroBlaze ELF files) design data. In the flows above, the .xclbin file has information about the address space of the PL design.
-
-.xsa: Xilinx Shell Archive. Vivado generates these files to contain the required hardware information for developing embedded software with Vitis and can only be opened with AMD tools.
+* .xclbin: Device binary file, also known as an AXLF file. It is an extensible, future-proof container for both (bitstream/platform) hardware and software (MPSoC/MicroBlaze ELF files) design data. In the flows above, the .xclbin file has information about the address space of the PL design.
+* .xsa: Xilinx Shell Archive. Vivado generates these files to contain the required hardware information for developing embedded software with Vitis and can only be opened with AMD tools.
 
 
 ## KR260 DPU-TRD Petalinux 2022.1 
