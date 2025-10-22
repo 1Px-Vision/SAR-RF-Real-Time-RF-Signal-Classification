@@ -301,9 +301,9 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
     petalinux-config --get-hw-description=.../prj_kria_2022/prj/
      ```
 4. In the configuration screen make the following settings,
-   *Enable FPGA MANAGER
-   *Disable TFTPboot copy
-   *Image package type INITRD, name as petalinux-initramfs-image
+   * Enable FPGA MANAGER
+   * Disable TFTPboot copy
+   * Image package type INITRD, name as petalinux-initramfs-image
 
 ### Compilation
 
