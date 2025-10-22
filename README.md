@@ -301,9 +301,7 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
    ```
 3. Import the hardware platform to the petalinux project
      ```
-     
-    petalinux-config --get-hw-description=.../prj_kria_2022/prj/
-     
+       petalinux-config --get-hw-description=.../prj_kria_2022/prj/ 
      ```
 4. In the configuration screen make the following settings,
    * Enable FPGA MANAGER
@@ -323,23 +321,20 @@ In the folder prj_kria_2022, container bitstream generation files necessary for 
       cp -r .../project-spec/meta-user/recipes-tools/ ./project-spec/meta-user/
       cp -r .../project-spec/meta-user/recipes-vitis-ai/ ./project-spec/meta-user/
       cp -r .../project-spec/meta-user/recipes-apps/ ./project-spec/meta-user/
-
   ```
-
 7. Append the CONFIG_x lines below to ..../project-spec/meta-user/conf/user-rootfsconfig file   
    ```
       CONFIG_vitis-ai-library
       CONFIG_vitis-ai-library-dev
       CONFIG_vitis-ai-library-dbg
    ```
-   
 8. Update petalinuxbsp.conf with the following lines.
    ```
       IMAGE_INSTALL:append = " vitis-ai-library "
       IMAGE_INSTALL:append = " vitis-ai-library-dev "
       IMAGE_INSTALL:append = " dpu-sw-optimize "
       IMAGE_INSTALL:append = " resnet50 "
-  ```
+   ```
 
 9. Run the rootfs configuration. Select the required packages, Don't select vitis-ai-library-dbg, including GNURADIO
 
