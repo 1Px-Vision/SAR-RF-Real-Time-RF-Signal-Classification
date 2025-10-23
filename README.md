@@ -413,7 +413,7 @@ sudo xmutil loadapp myApp
 8. Execute show_dpu or xdputil query command
 ```
 sudo show_dpu
-device_core_id=0 device= 0 core = 0 fingerprint = 0x101000016010407 batch = 1 full_cu_name=unknown:dpu0
+device_core_id=0 device= 0 core = 0 fingerprint = 0x101000016010407 batch = 1 full_cu_name=DPUCZDX8G:DPUCZDX8G_1
 ```
 ```
 sudo xdputil query
