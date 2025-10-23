@@ -478,6 +478,14 @@ sudo putty /dev/ttyUSB1 -serial -sercfg 115200,8,n,1,N
 ```
 ![Putty](https://github.com/1Px-Vision/SAR-RF-Real-Time-RF-Signal-Classification/blob/main/Hardware/Putty.jpg)
 
+## Testing DPU
+Virtual Environment 
+echo 'alias pynqenv="source /etc/profile.d/pynq_venv.sh"' >> ~/.bashrc
+source ~/.bashrc
+
+sudo -E bash -lc 'source /usr/local/share/pynq-venv/bin/activate && python3 /home/ubuntu/pynq_jupyter_notebooks/pynq-dpu/Test_Kria_E.py'
+
+
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
