@@ -288,6 +288,8 @@ Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
 ### STEP 1: Hardware Platform Generation.
 In the folder prj_kria_2022, container bitstream generation files necessary for generating image KR260.xpr, top.bit,top_wrapper.xsa.
 
+[![Google Drive](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/13UdnFCdsg_S078ppU1xqnbilDhj-EqzL/view?usp=drive_link)
+
 ### STEP 2: Petalinux 2022.1 build from BSP.
 
 1. Download [xilinx-kr260-starterkit-v2022.1-05140151.bsp](https://adaptivesupport.amd.com/s/article/000034113?language=en_US)
