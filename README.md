@@ -378,6 +378,8 @@ echo '{ "shell_type" : "XRT_FLAT", "num_slots": "1" }' > shell.json
    1. Using Balena Etcher flash the petalinux-sdimage.wic.gz onto a 16 GB SD Card.
    2. login with username petalinux and set a new password.
    3. Set up the ethernet connection and have an IP address for SFTP.
+Petalinux wic image 
+[![Google Drive](https://img.shields.io/badge/Google%20Drive-Download-blue?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1aIK3qEIjd82fbDY_gnRQyypUypVNO_Hz/view?usp=drive_link)
 
 ### STEP 5: Creating an Accelerated application
 1. Make a directory in your user space i.e., /home/petalinux
