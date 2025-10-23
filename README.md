@@ -462,6 +462,21 @@ arch_b1152.json
   --options '{"input_shape":"1,1024,1,2"}'
 
 ```
+##  Login with UART
+
+1. If you want to connect a Windows PC with the target board with UART, you can use TeraTerm, for example via COM27 port (of course this will depend on your computer), as illustrated in Figure 2.
+
+2. If you have a Linux host computer, you can connect to the target board via PuTTY utility, you have to launch these commands (note that you have to select the second port - ttyUSB1 - among the four available ttyUSBX with X=0,1,2,3):
+```  
+# from your host PC
+# search for USB devices with "tty" string and
+# look at the second of the list (ttyUSB1)
+dmseg | grep tty
+
+# call PuTTY on ttyUSB1 for KR260
+sudo putty /dev/ttyUSB1 -serial -sercfg 115200,8,n,1,N
+```
+
 ## Vivado, Vitis, & PetaLinux 2024.2 Install on WLS-Ubuntu
 FPGA design IDEs seem to sprint ahead with every release—yes, ‘accelerating’ very much intended—so installation tips never go out of style. I’m back with notes for AMD’s 2025.1 tools after running into a few new twists during setup (and, unsurprisingly, devoting yet more disk space to Vivado/Vitis).
 
