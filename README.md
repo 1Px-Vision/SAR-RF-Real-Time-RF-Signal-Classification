@@ -229,7 +229,7 @@ find / -name "arch.json" 2>/dev/null | grep -Ei "DPU|CZDX8G|KV260|KR260"
 - (Optional, for DPU): keep kernel sizes {1,3,5}, avoid unsupported ops, and fold BN for quantization-aware training.
 
 ### DPU Board Support
-Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G)
+Vitis AI DPU on Zynq UltraScale+ (DPUCZDX8G). Manual for creation of Vitis AI on MPSoc Using Vitis Flow 
 
 ## DPU-FPGA Platform Support Matrix
 
